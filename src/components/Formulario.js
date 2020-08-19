@@ -1,6 +1,14 @@
-import React from 'react';
+//Importamos el useContext para empezar a consumir nuestro Context
+import React, { useContext } from 'react';
+
+//Importamos el Context creado
+import { CategoriasContext } from '../context/CategoriasContext';
 
 const Formulario = () => {
+
+    //Una vez importado el context lo consumimos mediante useContext y cogemos el state
+    
+
     return ( 
         <form
             className="col-12"
