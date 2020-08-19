@@ -1,8 +1,9 @@
 //Importamos el useContext para empezar a consumir nuestro Context
 import React, { useContext, useState } from 'react';
 
-//Importamos el Context creado
+//Importamos los Contexts creados
 import { CategoriasContext } from '../context/CategoriasContext';
+import { RecetasContext } from '../context/RecetasContext';
 
 const Formulario = () => {
 
@@ -13,16 +14,18 @@ const Formulario = () => {
 
     //Una vez importado el context lo consumimos mediante useContext y cogemos el state
     const { categorias } = useContext(CategoriasContext);
+    const { buscarRecetas, guardarConsultar } = useContext(RecetasContext);
 
     const {nombre , categoria } = busqueda;
 
-    console.log(nombre);
-    console.log(categoria);
-
-    
 
     return ( 
         <form
+            onSubmit={e => {
+                e.preventDefault();
+                buscarRecetas(busqueda);
+                guardarConsultar(true);
+            }}
             className="col-12"
         >
             <fieldset className="text-center">
