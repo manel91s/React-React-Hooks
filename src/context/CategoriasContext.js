@@ -17,7 +17,7 @@ const CategoriasProvider = (props) => {
             const url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
             
             const categorias = await axios.get(url);
-            console.log(categorias);
+            guardarCategorias(categorias.data.drinks);
         }
         
         obtenerCategorias();
@@ -29,7 +29,7 @@ const CategoriasProvider = (props) => {
           
         //Todo lo que este dentro del value fluirá en todos los componentes, esa es la funcionabilidad de UseContext para no pasar mediante props en cada componente
             value={{
-                
+                categorias
                 
             }}
         >

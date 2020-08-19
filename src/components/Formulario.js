@@ -7,7 +7,9 @@ import { CategoriasContext } from '../context/CategoriasContext';
 const Formulario = () => {
 
     //Una vez importado el context lo consumimos mediante useContext y cogemos el state
-    
+    const { categorias } = useContext(CategoriasContext);
+
+    console.log(categorias);
 
     return ( 
         <form
@@ -33,6 +35,12 @@ const Formulario = () => {
                         name="categoria"
                     >
                         <option value="">-- Selecciona Categoría --</option>
+                        {categorias.map(categoria =>(
+                        <option 
+                            key={categoria.strCategory} 
+                            value={categoria.strCategory}
+                        >{categoria.strCategory}</option>
+                        ))}
                     </select>
                 </div>
 
