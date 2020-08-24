@@ -8,6 +8,7 @@ const ModalProvider = (props) => {
 
     //State del providers
     const [ idreceta, guardarIdReceta ] = useState(null);
+    const [ receta, guardarReceta] = useState({});
 
     //Una vez que tenemos una receta, llamar la api
 
@@ -19,7 +20,7 @@ const ModalProvider = (props) => {
 
             const resultado = await axios.get(url);
 
-            console.log(resultado.data.drinks[0]);
+            guardarReceta(resultado.data.drinks[0]);
         }
 
         obtenerReceta();
